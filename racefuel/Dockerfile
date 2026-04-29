@@ -9,6 +9,8 @@ RUN echo '#!/usr/bin/with-contenv bashio' > /run.sh && \
     echo 'else' >> /run.sh && \
     echo '    git clone https://${GITHUB_TOKEN}@github.com/jrspttr17/racefuel /app' >> /run.sh && \
     echo 'fi' >> /run.sh && \
+    echo 'python3 -m venv /venv' >> /run.sh && \
+    echo 'source /venv/bin/activate' >> /run.sh && \
     echo 'pip install --no-cache-dir -r /app/requirements.txt' >> /run.sh && \
     echo 'cd /app && streamlit run app.py --server.port 8501 --server.address 0.0.0.0' >> /run.sh && \
     chmod +x /run.sh
