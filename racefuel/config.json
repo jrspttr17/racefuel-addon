@@ -9,5 +9,11 @@
   "ports": {
     "8501/tcp": 8501
   },
-  "init": false
+  "init": false,
+  "options": {
+    "github_token": ""
+  },
+  "schema": {
+    "github_token": "str"
+  }
 }
