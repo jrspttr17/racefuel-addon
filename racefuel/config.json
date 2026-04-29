@@ -1,6 +1,6 @@
 {
   "name": "Racefuel",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "slug": "racefuel",
   "description": "Mijn Streamlit app",
   "arch": ["aarch64"],
