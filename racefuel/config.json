@@ -1,0 +1,13 @@
+{
+  "name": "Racefuel",
+  "version": "1.0.0",
+  "slug": "racefuel",
+  "description": "Mijn Streamlit app",
+  "arch": ["aarch64"],
+  "startup": "application",
+  "boot": "auto",
+  "ports": {
+    "8501/tcp": 8501
+  },
+  "init": false
+}
