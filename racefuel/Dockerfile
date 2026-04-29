@@ -1,8 +1,8 @@
-FROM python:3.11-slim
+FROM ghcr.io/home-assistant/aarch64-base:latest
 
-RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
+RUN apk add --no-cache git python3 py3-pip bash
 
-RUN echo '#!/bin/bash' > /run.sh && \
+RUN echo '#!/usr/bin/with-contenv bashio' > /run.sh && \
     echo 'GITHUB_TOKEN=$(bashio::config "github_token")' >> /run.sh && \
     echo 'if [ -d "/app/.git" ]; then' >> /run.sh && \
     echo '    cd /app && git pull https://${GITHUB_TOKEN}@github.com/jrspttr17/racefuel main' >> /run.sh && \
@@ -13,4 +13,4 @@ RUN echo '#!/bin/bash' > /run.sh && \
     echo 'cd /app && streamlit run app.py --server.port 8501 --server.address 0.0.0.0' >> /run.sh && \
     chmod +x /run.sh
 
-CMD [ "/bin/bash", "/run.sh" ]
+CMD [ "/run.sh" ]
